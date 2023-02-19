@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Registration and Login Page</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="login-card">
+      <h2>Login</h2>
+      <form method="post" action="../exercice-01/login.php">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+      </form>
+      <div class="card-footer">
+        <p>Don't have an account yet?</p>
+        <button id="show-register-form">Register</button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="register-card">
+      <h2>Registration</h2>
+      <form method="post" action="../exercice-01/register.php">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="username">Username:</label><br>
+        <input type="text" id="register-username" name="username" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="register-password" name="password" required><br>
+
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br>
+
+        <label for="ssn">Social Security Number:</label><br>
+        <input type="text" id="ssn" name="ssn" required><br>
+
+        <input type="submit" value="Register">
+      </form>
+      <div class="card-footer">
+        <p>Already have an account?</p>
+        <button id="show-login-form">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginCard = document.getElementById('login-card');
+    const registerCard = document.getElementById('register-card');
+    const showRegisterButton = document.getElementById('show-register-form');
+    const showLoginButton = document.getElementById('show-login-form');
+
+    showRegisterButton.addEventListener('click', function() {
+      loginCard.classList.add('hidden');
+      registerCard.classList.remove('hidden');
+      document.getElementById('register-username').focus();
+    });
+
+    showLoginButton.addEventListener('click', function() {
+      registerCard.classList.add('hidden');
+      loginCard.classList.remove('hidden');
+      document.getElementById('username').focus();
+    });
+  </script>
+</body>
+</html>
